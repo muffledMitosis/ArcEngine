@@ -1,4 +1,7 @@
-#pragma once
+#ifndef APPLICATION_H
+#define APPLICATION_H
+
+#include <functional>
 
 namespace AE {
 
@@ -15,3 +18,5 @@ namespace AE {
 	Application* CreateApplication();
 
 } // namespace AE
+
+#endif
