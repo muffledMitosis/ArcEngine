@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Window.h"
 extern AE::Application* AE::CreateApplication();
 
 int main()

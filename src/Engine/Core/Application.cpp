@@ -1,5 +1,7 @@
 #include "Application.h"
+#include "Window.h"
 
+#include <X11/X.h>
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -9,11 +11,13 @@
 
 #include <iostream>
 #include <functional>
+#include <chrono>
 
 namespace AE {
 
 	Application::Application()
 	{
+    this->m_window = new Window();
 	}
 
 	Application::~Application()
@@ -22,9 +26,26 @@ namespace AE {
 
 	void Application::Run()
 	{
-		// while (true);
-		std::cout<< "App Executed" << std::endl;
+		std::cout<< "App Started" << std::endl;
 
+    using std::chrono::high_resolution_clock;
+    using std::chrono::duration_cast;
+    using std::chrono::duration;
+    using std::chrono::milliseconds;
+
+
+    bool exit = false;
+    while(!exit)
+    {
+      auto t1 = high_resolution_clock::now();
+
+      exit = AE::Window::defaultExitConditionCall();
+      this->onUpdate();
+      this->m_window->endFrame();
+
+      auto t2 = high_resolution_clock::now();
+      std::cout<< duration_cast<milliseconds>(t2 - t1) << std::endl;
+    }
 	}
 
 } // namespace AE

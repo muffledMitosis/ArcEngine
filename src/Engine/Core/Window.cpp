@@ -31,12 +31,13 @@ namespace AE
 
     this->glCtx = SDL_GL_CreateContext(this->sdl_window);
     this->glVersion = gladLoadGL((GLADloadfunc) SDL_GL_GetProcAddress);
+
+    glClearColor(0.7f, 0.9f, 0.1f, 1.0f);
   }
 
   // TODO: Remove delay
   void Window::endFrame()
   {
-    glClearColor(0.7f, 0.9f, 0.1f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     SDL_GL_SwapWindow(this->sdl_window);
     // SDL_Delay(1);
