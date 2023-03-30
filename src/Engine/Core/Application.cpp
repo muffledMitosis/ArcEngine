@@ -40,11 +40,11 @@ namespace AE {
       auto t1 = high_resolution_clock::now();
 
       exit = AE::Window::defaultExitConditionCall();
-      this->onUpdate();
+      this->onRender();
       this->m_window->endFrame();
 
       auto t2 = high_resolution_clock::now();
-      std::cout<< duration_cast<milliseconds>(t2 - t1) << std::endl;
+      std::cout<< "Frame Time:" << duration_cast<milliseconds>(t2 - t1) << std::endl;
     }
 	}
 

@@ -15,7 +15,7 @@ namespace AE {
 		Application();
 		virtual ~Application() = 0;
 
-		virtual void onUpdate() = 0;
+		virtual void onRender() = 0;
     void Run();
 	};
 
