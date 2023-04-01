@@ -43,6 +43,7 @@ public:
 
     return false;
   }
+
   std::function<void()> loop;
 
   Window(unsigned int width=800, unsigned int height=600);

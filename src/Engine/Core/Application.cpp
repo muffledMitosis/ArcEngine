@@ -8,7 +8,9 @@
 #include <glad/gl.h>
 #include <SDL.h>
 #include <SDL_opengl.h>
-#include <spdlog/spdlog.h>
+
+#define DEBUG
+#include "Log.h"
 
 #include <iostream>
 #include <functional>
@@ -27,8 +29,6 @@ namespace AE {
 
 	void Application::Run()
 	{
-		std::cout<< "App Started" << std::endl;
-
     using std::chrono::high_resolution_clock;
     using std::chrono::duration_cast;
     using std::chrono::duration;
@@ -45,7 +45,7 @@ namespace AE {
       this->m_window->endFrame();
 
       auto t2 = high_resolution_clock::now();
-      std::cout<< "Frame Time:" << duration_cast<milliseconds>(t2 - t1) << std::endl;
+      // AE_INFO("Frame Time: {0}", duration_cast<milliseconds>(t2 - t1).count());
     }
 	}
 
