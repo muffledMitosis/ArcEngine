@@ -21,6 +21,8 @@ add_library(glad STATIC "${GLAD_SRC}")
 target_include_directories(glad PUBLIC "${GLAD_INCLUDE_DIRS}")
 target_compile_definitions(glad PRIVATE GLAD_GLAPI_EXPORT)
 
+# GLM
+add_subdirectory(./libs/glm)
 
-target_link_libraries(ArcEngine SDL2main SDL2-static glad)
+target_link_libraries(ArcEngine SDL2main SDL2-static glad glm)
 
