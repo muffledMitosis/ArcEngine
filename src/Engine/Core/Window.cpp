@@ -1,15 +1,9 @@
 #include "Window.h"
-#include <X11/X.h>
 
 namespace AE 
 {
   Window::Window(unsigned int width, unsigned int height)
   {
-    // Function returns true if the close button or the escape key is pressed
-    // This is considered as "Default Exit Behaviour"
-    // this->defaultExitConditionCall = []() -> bool {
-    // };
-
     this->width = width;
     this->height = height;
 
@@ -32,7 +26,6 @@ namespace AE
     this->glCtx = SDL_GL_CreateContext(this->sdl_window);
     this->glVersion = gladLoadGL((GLADloadfunc) SDL_GL_GetProcAddress);
 
-    glClearColor(0.7f, 0.9f, 0.1f, 1.0f);
   }
 
   // TODO: Remove delay

@@ -21,6 +21,7 @@ namespace AE {
 	Application::Application()
 	{
     this->m_window = new Window();
+    this->m_renderer_2d = new Graphics::Renderer2D();
 	}
 
 	Application::~Application()
@@ -48,5 +49,7 @@ namespace AE {
       // AE_INFO("Frame Time: {0}", duration_cast<milliseconds>(t2 - t1).count());
     }
 	}
+
+  Graphics::Renderer2D* Application::GetRenderer2D() {return this->m_renderer_2d;}
 
 } // namespace AE
